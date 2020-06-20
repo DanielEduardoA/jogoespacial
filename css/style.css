@@ -1,0 +1,56 @@
+.container { 
+	width: 600px; 
+	height: 500px; 
+	margin: 0 auto; 
+}
+
+.botoes { 
+	text-align: center; 
+	margin-top: 15px;
+}
+
+#menu-buttons ul{
+	width: 100%;
+	max-width: 500px;
+}
+
+#menu-buttons ul, .botoes #menu-buttons ul li{ 
+	list-style: none; 
+	padding: 0;
+	color: rgb(255,255,255);
+}
+
+#menu-buttons ul li { 
+	height: 40px;
+	line-height: 40px;
+	font-size: 120%;
+}
+
+#menu-buttons a { 
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#menu-buttons a:hover{
+	color: #F5F5F5;
+}
+
+#menu-buttons #iniciar, #menu-buttons #continuar{ 
+	background: rgb(50,205,50);
+}
+
+#menu-buttons #pausar { 
+	background: rgb(255,255,0);
+}
+
+#menu-buttons #reiniciar { 
+	background: rgb(255, 165, 0);
+}
+
+#menu-buttons #pontuacao { 
+	background: rgb(30,35,176);
+}
+
+#menu-buttons #instrucoes { 
+	background: rgb(255,0,0);
+}
