@@ -9,12 +9,12 @@ function Inimigo(context, imagem, imagemExplosao) {
 }
 
 Inimigo.prototype = {
-    desenhar: function() {
+    desenhar: function () {
         var contexto = this.context;
         var imagem = this.imagem;
         contexto.drawImage(imagem, this.x, this.y, imagem.width, imagem.height);
     },
-    definirRetangulosColisao: function() {
+    definirRetangulosColisao: function () {
         var retangulos = [
             { x: this.x + 20, y: this.y + 1, largura: 25, altura: 10 },
             { x: this.x + 2, y: this.y + 11, largura: 60, altura: 12 },
@@ -22,7 +22,7 @@ Inimigo.prototype = {
         ];
         return retangulos;
     },
-    colidir: function(sprite) {
+    colidir: function (sprite) {
         if (sprite instanceof Tiro) {
             this.animacao.excluirSprite(this);
             this.colisor.excluirSprite(this);
@@ -33,7 +33,7 @@ Inimigo.prototype = {
             this.animacao.criarNovoSprite(explosao);
         }
     },
-    atualizar: function() {
+    atualizar: function () {
         this.y += this.velocidade * this.animacao.decorrido / 1000;
         if (this.y > this.context.canvas.height) {
             this.animacao.excluirSprite(this);

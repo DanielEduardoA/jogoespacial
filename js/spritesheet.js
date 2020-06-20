@@ -10,13 +10,13 @@ function Spritesheet(context, imagem, linhas, colunas) {
 }
 
 Spritesheet.prototype = {
-    desenhar: function(x, y) {
+    desenhar: function (x, y) {
         var largura = this.imagem.width / this.numeroColunas;
         var altura = this.imagem.height / this.numeroLinhas;
 
         this.context.drawImage(this.imagem, largura * this.coluna, altura * this.linha, largura, altura, x, y, largura, altura);
     },
-    definirProximoQuadro: function() {
+    definirProximoQuadro: function () {
         var tempoAtual = new Date().getTime();
         if (!this.ultimoTempo) this.ultimoTempo = tempoAtual;
 

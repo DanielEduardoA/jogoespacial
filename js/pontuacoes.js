@@ -49,18 +49,18 @@ function mostrarMaioresPontuacoes(context, pontuacoes) {
 }
 
 function recuperarMaioresPontuacoes(pontuacoes) {
-    pontuacoes.sort(function(pontuacao1, pontuacao2) { return pontuacao2 - pontuacao1 });
+    pontuacoes.sort(function (pontuacao1, pontuacao2) { return pontuacao2 - pontuacao1 });
     return pontuacoes.slice(0, 5);
 }
 
 function recuperarMaiorPontuacao(pontuacoes) {
-    return pontuacoes.reduce(function(pontuacao1, pontuacao2) {
+    return pontuacoes.reduce(function (pontuacao1, pontuacao2) {
         return Math.max(pontuacao1, pontuacao2);
     });
 }
 
 function recuperarMenorPontuacao(pontuacoes) {
-    return pontuacoes.reduce(function(pontuacao1, pontuacao2) {
+    return pontuacoes.reduce(function (pontuacao1, pontuacao2) {
         return Math.min(pontuacao1, pontuacao2);
     });
 }
@@ -74,11 +74,14 @@ function mostrarMaiorPontuacao(context, pontuacoes) {
 }
 
 function mostrarMenorPontuacao(context, pontuacoes) {
-    var menorPontuacao = recuperarMenorPontuacao(pontuacoes);
 
-    context.fillStyle = corFonte;
-    context.font = estiloFonte;
-    context.fillText('Menor Pontuação:       ' + menorPontuacao, 40, 100);
+    if (pontuacoes.length > 1) {
+        var menorPontuacao = recuperarMenorPontuacao(pontuacoes);
+
+        context.fillStyle = corFonte;
+        context.font = estiloFonte;
+        context.fillText('Menor Pontuação:       ' + menorPontuacao, 40, 100);
+    }
 }
 
 function salvarPontuacao(pontuacao) {

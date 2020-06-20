@@ -10,22 +10,22 @@ function Animacao(context) {
 }
 
 Animacao.prototype = {
-    ligar: function() {
+    ligar: function () {
         this.ultimoCiclo = 0;
         this.ligado = true;
         this.irProximoFrame();
     },
-    desligar: function() {
+    desligar: function () {
         this.ligado = false;
     },
-    criarNovoSprite: function(sprite) {
+    criarNovoSprite: function (sprite) {
         this.sprites.push(sprite);
         sprite.animacao = this;
     },
-    excluirSprite: function(sprite) {
+    excluirSprite: function (sprite) {
         this.spritesAExcluir.push(sprite);
     },
-    irProximoFrame: function() {
+    irProximoFrame: function () {
         if (!this.ligado) return;
 
         var tempoAtual = new Date().getTime();
@@ -46,18 +46,18 @@ Animacao.prototype = {
         this.ultimoCiclo = tempoAtual;
 
         var animacao = this;
-        requestAnimationFrame(function() {
+        requestAnimationFrame(function () {
             animacao.irProximoFrame();
         });
     },
-    criarNovoProcessamento: function(processamento) {
+    criarNovoProcessamento: function (processamento) {
         this.processamentos.push(processamento);
         processamento.animacao = this;
     },
-    excluirProcessamento: function(processamento) {
+    excluirProcessamento: function (processamento) {
         this.processamentosAExcluir.push(processamento);
     },
-    processarExclusoes: function() {
+    processarExclusoes: function () {
         var novosSprites = [];
         var novosProcessamentos = [];
 

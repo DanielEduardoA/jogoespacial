@@ -14,7 +14,7 @@ function Foguete(context, teclado, imagem, imagemExplosao) {
 }
 
 Foguete.prototype = {
-    desenhar: function() {
+    desenhar: function () {
         if (this.teclado.pressionar(SETA_ESQUERDA))
             this.spritesheet.linha = 1;
         else if (this.teclado.pressionar(SETA_DIREITA))
@@ -25,7 +25,7 @@ Foguete.prototype = {
         this.spritesheet.desenhar(this.x, this.y);
         this.spritesheet.definirProximoQuadro();
     },
-    atualizar: function() {
+    atualizar: function () {
         var incremento = this.velocidade * this.animacao.decorrido / 1000;
         if (this.teclado.pressionar(SETA_ESQUERDA) && this.x > 0)
             this.x -= incremento;
@@ -40,12 +40,12 @@ Foguete.prototype = {
             this.y += incremento;
 
     },
-    atirar: function() {
+    atirar: function () {
         var tiro = new Tiro(this.context, this);
         this.animacao.criarNovoSprite(tiro);
         this.colisor.criarNovoSprite(tiro);
     },
-    definirRetangulosColisao: function() {
+    definirRetangulosColisao: function () {
         var retangulos = [
             { x: this.x + 2, y: this.y + 19, largura: 9, altura: 13 },
             { x: this.x + 13, y: this.y + 3, largura: 10, altura: 33 },
@@ -53,7 +53,7 @@ Foguete.prototype = {
         ];
         return retangulos;
     },
-    colidir: function(sprite) {
+    colidir: function (sprite) {
         if (sprite instanceof Inimigo) {
             this.animacao.excluirSprite(this);
             this.animacao.excluirSprite(sprite);
@@ -68,7 +68,7 @@ Foguete.prototype = {
             this.animacao.criarNovoSprite(explosao2);
 
             var Foguete = this;
-            explosao1.finalizarExplosao = function() {
+            explosao1.finalizarExplosao = function () {
                 Foguete.vidasExtras--;
                 if (Foguete.vidasExtras < 1) {
                     Foguete.acabarVidas();
@@ -79,7 +79,7 @@ Foguete.prototype = {
             }
         }
     },
-    posicionar: function() {
+    posicionar: function () {
         var canvas = this.context.canvas;
         this.x = canvas.width / 2 - 18;
         this.y = canvas.height - 48;

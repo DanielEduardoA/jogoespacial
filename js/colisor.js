@@ -5,11 +5,11 @@ function Colisor() {
 }
 
 Colisor.prototype = {
-    criarNovoSprite: function(sprite) {
+    criarNovoSprite: function (sprite) {
         this.sprites.push(sprite);
         sprite.colisor = this;
     },
-    processar: function() {
+    processar: function () {
         var spritesVerificados = new Object();
 
         for (var i in this.sprites) {
@@ -31,26 +31,26 @@ Colisor.prototype = {
         }
         this.processarExclusoes();
     },
-    testarColisao: function(sprite1, sprite2) {
+    testarColisao: function (sprite1, sprite2) {
         var retanguloSprite1 = sprite1.definirRetangulosColisao();
         var retanguloSprite2 = sprite2.definirRetangulosColisao();
 
         colisoes:
-            for (var i in retanguloSprite1) {
-                for (var j in retanguloSprite2) {
-                    if (this.existeColisao(retanguloSprite1[i], retanguloSprite2[j])) {
-                        sprite1.colidir(sprite2);
-                        sprite2.colidir(sprite1);
-                        if (this.colidir) this.colidir(sprite1, sprite2);
-                        break colisoes;
-                    }
+        for (var i in retanguloSprite1) {
+            for (var j in retanguloSprite2) {
+                if (this.existeColisao(retanguloSprite1[i], retanguloSprite2[j])) {
+                    sprite1.colidir(sprite2);
+                    sprite2.colidir(sprite1);
+                    if (this.colidir) this.colidir(sprite1, sprite2);
+                    break colisoes;
                 }
             }
+        }
     },
-    existeColisao: function(retangulo1, retangulo2) {
+    existeColisao: function (retangulo1, retangulo2) {
         return (retangulo1.x + retangulo1.largura) > retangulo2.x && retangulo1.x < (retangulo2.x + retangulo2.largura) && (retangulo1.y + retangulo1.altura) > retangulo2.y && retangulo1.y < (retangulo2.y + retangulo2.altura);
     },
-    criarIdentificador: function(sprite) {
+    criarIdentificador: function (sprite) {
         var identificador = '';
         var retangulos = sprite.definirRetangulosColisao();
         for (var i in retangulos) {
@@ -61,10 +61,10 @@ Colisor.prototype = {
         }
         return identificador;
     },
-    excluirSprite: function(sprite) {
+    excluirSprite: function (sprite) {
         this.spritesAExcluir.push(sprite);
     },
-    processarExclusoes: function() {
+    processarExclusoes: function () {
         var novosSprites = [];
         for (var i in this.sprites) {
             if (this.spritesAExcluir.indexOf(this.sprites[i]) == -1)

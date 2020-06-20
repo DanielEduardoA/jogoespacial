@@ -13,7 +13,7 @@ function Teclado(elemento) {
 
     var teclado = this;
 
-    elemento.addEventListener('keydown', function(evento) {
+    elemento.addEventListener('keydown', function (evento) {
         var tecla = evento.keyCode;
         teclado.pressionadas[tecla] = true;
 
@@ -23,16 +23,16 @@ function Teclado(elemento) {
         }
     });
 
-    elemento.addEventListener('keyup', function(evento) {
+    elemento.addEventListener('keyup', function (evento) {
         teclado.pressionadas[evento.keyCode] = false;
         teclado.disparadas[evento.keyCode] = false;
     });
 }
 Teclado.prototype = {
-    pressionar: function(tecla) {
+    pressionar: function (tecla) {
         return this.pressionadas[tecla];
     },
-    disparar: function(tecla, callback) {
+    disparar: function (tecla, callback) {
         this.funcoesDisparo[tecla] = callback;
     }
 }

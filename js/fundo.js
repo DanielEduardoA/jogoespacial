@@ -6,14 +6,14 @@ function Fundo(context, imagem) {
 }
 
 Fundo.prototype = {
-    desenhar: function() {
+    desenhar: function () {
         var imagem = this.imagem;
         var posicaoY = this.emenda - imagem.height;
         this.context.drawImage(imagem, 0, posicaoY, imagem.width, imagem.height);
         posicaoY = this.emenda;
         this.context.drawImage(imagem, 0, posicaoY, imagem.width, imagem.height);
     },
-    atualizar: function() {
+    atualizar: function () {
         this.emenda += this.velocidade * this.animacao.decorrido / 1000;
         if (this.emenda > this.imagem.height)
             this.emenda = 0;

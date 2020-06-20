@@ -6,7 +6,7 @@ function Painel(context, nave) {
 }
 
 Painel.prototype = {
-    desenhar: function() {
+    desenhar: function () {
         this.context.scale(0.5, 0.5);
 
         var x = 20;
@@ -25,5 +25,5 @@ Painel.prototype = {
         this.context.fillText(this.pontuacao, 100, 27);
         this.context.restore();
     },
-    atualizar: function() {}
+    atualizar: function () { }
 }
