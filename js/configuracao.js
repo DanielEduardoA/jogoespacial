@@ -329,12 +329,12 @@
 	  context.fillStyle = 'white';
       context.font = '30px sans-serif';
 	  var pontuacoes = recuperarPontuacoes();
-	  var maiorPontuacao = recuperarMaiorPontuacao(pontuacoes);
 	  
 	  if(pontuacoes.length == 0 || pontuacoes == null){
 		context.fillText('Você perdeu.', 40, 200);  
 		context.fillText('Sua pontuação: ' + painel.pontuacao, 40, 250);		
 	  } else {
+		  var maiorPontuacao = recuperarMaiorPontuacao(pontuacoes);
 		  if(pontuacaoFinal >  maiorPontuacao){
 			context.fillText('Você ganhou.', 40, 200);
 		  } else {
