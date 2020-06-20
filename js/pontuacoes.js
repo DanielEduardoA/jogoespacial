@@ -12,6 +12,8 @@ function mostrarPontuacoes() {
     var imagemEspaco = criarImagem("img/fundo-espaco.png");
     desenharImagem(imagemEspaco);
 
+    restaurarContexto();
+
     if (pontuacoes.length == 0 || pontuacoes == null) {
         mostrarMensagemNaoExistePontuacao(context);
     } else {

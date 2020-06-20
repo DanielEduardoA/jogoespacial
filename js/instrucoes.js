@@ -9,6 +9,8 @@ function mostrarInstrucoes() {
     var imagemEspaco = criarImagem("img/fundo-espaco.png");
     desenharImagem(imagemEspaco);
 
+    restaurarContexto();
+
     context.fillStyle = 'white';
     context.font = '11px sans-serif';
     context.fillText('Use as teclas [home, end, pageUp, pageEnd] para mover o foquete.', 10, 50);
